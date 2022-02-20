@@ -1,0 +1,52 @@
+{
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "eslint.nodePath": "/node_modules",
+  "eslint.options": {
+    "overrideConfigFile": ".eslintrc.js",
+    "extensions": [
+      ".html",
+      ".js",
+      ".jsx",
+      ".css",
+      ".ts",
+      ".tsx"
+    ]
+  },
+  "eslint.run": "onType",
+  "eslint.validate": [
+    "html",
+    "javascript",
+    "javascriptreact"
+  ],
+  "eslint.workingDirectories": [
+    ".eslintrc.js",
+    { "mode": "auto" }
+  ],
+  "files.autoSave": "off",
+  "prettier.requireConfig": true,
+  "tailwindCSS.emmetCompletions": true,
+}

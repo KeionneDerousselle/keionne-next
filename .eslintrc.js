@@ -1,0 +1,39 @@
+module.exports = {
+  root: true,
+  extends: [
+    'plugin:tailwind/recommended',
+    'prettier',
+    'prettier/prettier',
+    'plugin:prettier/recommended',
+    'plugin:@next/next/recommended',
+  ],
+
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+
+  plugins: ['testing-library'],
+  rules: {
+    'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
+    'react/prop-types': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/require-default-props': 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
+  },
+  overrides: [
+    // Only uses Testing Library lint rules in test files
+    {
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      extends: ['next', 'plugin:testing-library/react'],
+    },
+  ],
+};
