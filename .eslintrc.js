@@ -1,11 +1,12 @@
 module.exports = {
   root: true,
   extends: [
+    'plugin:@next/next/recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:tailwind/recommended',
     'prettier',
     'prettier/prettier',
     'plugin:prettier/recommended',
-    'plugin:@next/next/recommended',
   ],
 
   parserOptions: {
@@ -18,6 +19,8 @@ module.exports = {
 
   plugins: ['testing-library'],
   rules: {
+    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-explicit-any': 'error',
     'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
     'react/prop-types': 'off',
     'react/jsx-props-no-spreading': 'off',

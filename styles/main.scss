@@ -1,0 +1,58 @@
+html {
+  @apply font-rubik box-border;
+  word-spacing: 1px;
+  font-family: Rubik, sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+  @apply m-0 p-0 border-0 h-full w-full;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  @apply border-0;
+}
+
+ol,
+ul {
+  @apply list-none;
+}
+
+*,
+*::before,
+*::after {
+  @apply box-border m-0 p-0;
+  font-family: inherit;
+}
+
+.k-container {
+  @apply p-5 mx-auto w-full;
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    max-width: 920px;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 920px;
+  }
+}
