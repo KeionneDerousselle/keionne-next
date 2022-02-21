@@ -15,13 +15,13 @@ const AvatarContainer: FC = ({ children }) => (
   </div>
 );
 
-interface SpeechBubblerProps {
+interface SpeechBubbleProps {
   blurbTitle: string;
   blurbDescription: string;
   ctaLabel: string;
 }
 
-const SpeechBubble: FC<SpeechBubblerProps> = ({ blurbTitle, blurbDescription, ctaLabel }) => (
+const SpeechBubble: FC<SpeechBubbleProps> = ({ blurbTitle, blurbDescription, ctaLabel }) => (
   <div className="relative w-full about__speech-bubble md:w-3/4 px-[15px] md:flex-[0_0_75%] md:max-w-[75%] before:absolute before:w-0 before:h-0 before:left-1/2 before:top-[-10px] before:border-t-0 before:translate-x-[-7.5px] before:border-l-[10px] before:border-l-transparent before:border-r-[10px] before:border-r-transparent before:border-b-[10px] before:border-b-white md:before:border-l-0 md:before:border-t-[10px] md:before:border-t-transparent md:before:border-b-[10px] md:before:border-b-transparent md:before:border-r-[15px] md:before:border-r-white md:before:left-0 md:before:top-[20%] md:before:translate-x-0">
     <div className="w-full p-8 bg-white speech-bubble__content rounded-3xl shadow-custom">
       <h3 className="mb-4 text-2xl font-semibold text-purple-600 content__title">{blurbTitle}</h3>

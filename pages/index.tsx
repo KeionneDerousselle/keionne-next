@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
+import { GetStaticProps } from 'next';
 import { Layout } from '@/components/molecules/layout';
-import { AboutMe } from '@/components/organisms/about-me';
+import { AboutMe, AboutMeProps } from '@/components/organisms/about-me';
+import { getHomePageContent } from 'lib/content/api';
 
-function IndexPage() {
+export interface HomePageProps {
+  aboutMe: AboutMeProps;
+}
+
+export default function Home({ aboutMe }: HomePageProps): ReactElement {
   return (
     <Layout>
-      <AboutMe title="About Me" blurbTitle="Hi, there!" blurbDescription="lorem ipsum" ctaLabel="Download CV" />
+      <AboutMe {...aboutMe} />
     </Layout>
   );
 }
 
-export default IndexPage;
+export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
+  const homePageProps = await getHomePageContent();
+  return {
+    props: {
+      ...homePageProps,
+    },
+  };
+};
