@@ -1,13 +1,14 @@
 import { FC } from 'react';
 import classNames from 'classnames';
+import Fade from 'react-reveal/Fade';
 
-export interface SectionTitleProps {
+export type SectionTitleProps = {
   title: string;
   className?: string;
-}
+};
 
-export const SectionTitle: FC<SectionTitleProps> = ({ title, className }) => {
-  return (
+export const SectionTitle: FC<SectionTitleProps> = ({ title, className }) => (
+  <Fade bottom>
     <h2
       className={classNames(
         "section__title text-4xl relative font-bold ml-3.5 text-purple-600 font-rubik before:block before:absolute before:-top-3.5 before:-left-3.5 before:w-[37px] before:h-[37px] before:bg-[url('/img/section-title/bg.svg')]",
@@ -16,5 +17,5 @@ export const SectionTitle: FC<SectionTitleProps> = ({ title, className }) => {
     >
       {title}
     </h2>
-  );
-};
+  </Fade>
+);

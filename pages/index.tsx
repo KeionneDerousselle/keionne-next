@@ -3,15 +3,18 @@ import { GetStaticProps } from 'next';
 import { Layout } from '@/components/molecules/layout';
 import { AboutMe, AboutMeProps } from '@/components/organisms/about-me';
 import { getHomePageContent } from 'lib/content/api';
+import { Skills, SkillsProps } from '@/components/organisms/skills';
 
-export interface HomePageProps {
+export type HomePageProps = {
   aboutMe: AboutMeProps;
-}
+  skills: SkillsProps;
+};
 
-export default function Home({ aboutMe }: HomePageProps): ReactElement {
+export default function Home({ aboutMe, skills }: HomePageProps): ReactElement {
   return (
     <Layout>
-      <AboutMe {...aboutMe} />
+      <AboutMe {...aboutMe} className="py-14" />
+      <Skills {...skills} className="py-14" />
     </Layout>
   );
 }
