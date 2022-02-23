@@ -34,7 +34,7 @@ ul {
 }
 
 .k-container {
-  @apply p-5 mx-auto w-full;
+  @apply px-5 mx-auto w-full;
 
   @media (min-width: 576px) {
     max-width: 540px;

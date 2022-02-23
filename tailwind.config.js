@@ -5,6 +5,17 @@ module.exports = {
       rubik: ['Rubik', 'sans-serif'],
     },
 
+    screens: {
+      xxs: '320px',
+      xs: '475px',
+      sm: '640px',
+      md: '768px',
+      'md-992': '992px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
+
     colors: {
       transparent: 'transparent',
       black: '#000',
