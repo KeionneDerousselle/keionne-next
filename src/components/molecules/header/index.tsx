@@ -27,6 +27,55 @@ const NavLink: FC<NavLinkProps> = ({ href, isActive, className, label }) => (
   </li>
 );
 
+const LogoLink: FC = () => {
+  const router = useRouter();
+  const onHomePage = router.pathname === '/';
+
+  return (
+    <Link href="/" passHref>
+      <a aria-current={onHomePage ? 'page' : 'false'} className="align-bottom">
+        <span className="inline-flex items-end h-6">
+          <span className="inline-block text-2xl font-bold text-white leading-5">Keionne</span>
+          <span className="inline-block w-2 h-2 ml-1 bg-pink-300 rounded" />
+        </span>
+      </a>
+    </Link>
+  );
+};
+
+type NavToggleButtonProps = {
+  id?: string;
+  className?: string;
+  isNavOpen: boolean;
+  onClick: () => void;
+};
+const NavToggleButton: FC<NavToggleButtonProps> = ({ id, isNavOpen, onClick }) => (
+  <button
+    id={id}
+    type="button"
+    aria-label="Toggle Main Navigation Menu"
+    aria-controls="header-nav-menu"
+    aria-expanded={isNavOpen}
+    className={classNames(
+      'header-nav-menu-toggle inline-block rounded md-992:hidden h-9 w-9 border border-purple-200',
+      'before:block before:w-4 before:h-0.5 before:rounded before:bg-purple-200 before:transition-all before:duration-300 before:mx-auto',
+      'after:block after:w-4 after:h-0.5 after:rounded after:bg-purple-200 after:transition-all after:duration-300 after:mx-auto',
+
+      {
+        'before:translate-y-[0.23rem] before:rotate-[135deg]': isNavOpen,
+        'after:translate-y-[-0.23rem] after:rotate-[-135deg]': isNavOpen,
+      }
+    )}
+    onClick={onClick}
+  >
+    <span
+      className={classNames('block w-4 h-0.5 rounded bg-purple-200 transition-all duration-300 mx-auto my-0.5', {
+        'scale-0': isNavOpen,
+      })}
+    />
+  </button>
+);
+
 export type HeaderProps = {
   id?: string;
   className?: string;
@@ -37,7 +86,6 @@ export const Header: FC<HeaderProps> = ({ id, className }) => {
   const isDesktopOrTablet = useMedia({ minWidth: tailwindConfig.theme.screens['md-992'] });
 
   const router = useRouter();
-  const onHomePage = router.pathname === '/';
 
   const toggleNavMenu = () => {
     const navOpened = !isNavOpen;
@@ -90,40 +138,8 @@ export const Header: FC<HeaderProps> = ({ id, className }) => {
           role="navigation"
         >
           <div className="flex self-start justify-between w-full md-992:self-auto md-992:mb-0 md-992:w-auto">
-            <Link href="/" passHref>
-              <a aria-current={onHomePage ? 'page' : 'false'} className="align-bottom">
-                <span className="inline-flex items-end h-6">
-                  <span className="inline-block text-2xl font-bold text-white leading-5">Keionne</span>
-                  <span className="inline-block w-2 h-2 ml-1 bg-pink-300 rounded" />
-                </span>
-              </a>
-            </Link>
-
-            <button
-              id="header-nav-menu-toggle"
-              type="button"
-              aria-label="Toggle Main Navigation Menu"
-              aria-controls="header-nav-menu"
-              aria-expanded={isNavOpen}
-              className={classNames(
-                'header-nav-menu-toggle inline-block rounded md-992:hidden h-9 w-9 border border-purple-200',
-                'before:block before:w-4 before:h-0.5 before:rounded before:bg-purple-200 before:transition-all before:duration-300 before:mx-auto',
-                'after:block after:w-4 after:h-0.5 after:rounded after:bg-purple-200 after:transition-all after:duration-300 after:mx-auto',
-
-                {
-                  'before:translate-y-[0.23rem] before:rotate-[135deg]': isNavOpen,
-                  'after:translate-y-[-0.23rem] after:rotate-[-135deg]': isNavOpen,
-                }
-              )}
-              onClick={toggleNavMenu}
-            >
-              <span
-                className={classNames(
-                  'block w-4 h-0.5 rounded bg-purple-200 transition-all duration-300 mx-auto my-0.5',
-                  { 'scale-0': isNavOpen }
-                )}
-              />
-            </button>
+            <LogoLink />
+            <NavToggleButton id="header-nav-menu-toggle" isNavOpen={isNavOpen} onClick={toggleNavMenu} />
           </div>
 
           <ul
