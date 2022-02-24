@@ -3,6 +3,7 @@ import { Section } from '@/components/molecules/section';
 import { ButtonLink } from '@/components/atoms/button-link';
 
 export type AboutMeProps = {
+  id: string;
   className?: string;
   title: string;
   blurbTitle: string;
@@ -34,8 +35,8 @@ const SpeechBubble: FC<SpeechBubbleProps> = ({ blurbTitle, blurbDescription, cta
   </div>
 );
 
-export const AboutMe: FC<AboutMeProps> = ({ className, title, blurbDescription, blurbTitle, ctaLabel }) => (
-  <Section title={title} className={className}>
+export const AboutMe: FC<AboutMeProps> = ({ id, className, title, blurbDescription, blurbTitle, ctaLabel }) => (
+  <Section id={id} title={title} className={className}>
     <div className="flex flex-wrap">
       <AvatarContainer>
         <img src="https://via.placeholder.com/150x150" className="align-middle" alt="Keionne's Avatar" />

@@ -4,6 +4,7 @@ import { ProgressBar } from '@/components/atoms/progress-bar';
 import classNames from 'classnames';
 
 export type SkillsProps = {
+  id: string;
   className?: string;
   title: string;
   skillGroups: {
@@ -23,8 +24,8 @@ const skillGroupColors = {
   2: 'bg-pink-200',
 };
 
-export const Skills: FC<SkillsProps> = ({ className, title, skillGroups }) => (
-  <Section title={title} className={className}>
+export const Skills: FC<SkillsProps> = ({ id, className, title, skillGroups }) => (
+  <Section id={id} title={title} className={className}>
     <div className="flex flex-wrap -mx-6">
       {skillGroups.map(({ title: groupTitle, skills }, i) => (
         <div className="w-full px-6 md:flex-[0_0_33%] md:max-w-[33%]">

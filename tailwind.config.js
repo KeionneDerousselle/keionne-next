@@ -108,12 +108,35 @@ module.exports = {
         c: '#ccc',
       },
     },
+
     extend: {
       spacing: {
         3.5: '0.875rem',
       },
+
       boxShadow: {
         custom: '0px 5px 20px 0px rgb(69 67 96 / 10%)',
+      },
+
+      keyframes: {
+        'mouse-wheel': {
+          '0%': {
+            top: '29%',
+          },
+          '15%': {
+            top: '50%',
+          },
+          '50%': {
+            top: '50%',
+          },
+          '100%': {
+            top: '29%',
+          },
+        },
+      },
+
+      animation: {
+        'mouse-wheel': 'mouse-wheel 2s linear infinite',
       },
     },
   },

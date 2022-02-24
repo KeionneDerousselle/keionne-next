@@ -6,15 +6,15 @@ import { getHomePageContent } from 'lib/content/api';
 import { Skills, SkillsProps } from '@/components/organisms/skills';
 
 export type HomePageProps = {
-  aboutMe: AboutMeProps;
-  skills: SkillsProps;
+  aboutMe: Omit<AboutMeProps, 'id'>;
+  skills: Omit<SkillsProps, 'id'>;
 };
 
 export default function Home({ aboutMe, skills }: HomePageProps): ReactElement {
   return (
     <Layout>
-      <AboutMe {...aboutMe} className="py-14" />
-      <Skills {...skills} className="py-14" />
+      <AboutMe id="about" {...aboutMe} className="py-14" />
+      <Skills id="skills" {...skills} className="py-14" />
     </Layout>
   );
 }

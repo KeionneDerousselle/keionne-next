@@ -49,6 +49,7 @@ type NavToggleButtonProps = {
   isNavOpen: boolean;
   onClick: () => void;
 };
+
 const NavToggleButton: FC<NavToggleButtonProps> = ({ id, isNavOpen, onClick }) => (
   <button
     id={id}
@@ -129,7 +130,7 @@ export const Header: FC<HeaderProps> = ({ id, className }) => {
   return (
     <header
       id={id}
-      className={classNames('header fixed w-full py-5 top-0 left-0 z-20 overflow-hidden bg-purple-700', className)}
+      className={classNames('header fixed w-full py-5 top-0 left-0 z-50 overflow-hidden bg-purple-700', className)}
     >
       <div className="k-container">
         <nav
