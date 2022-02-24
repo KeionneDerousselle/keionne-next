@@ -1,8 +1,7 @@
 import { FC, useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useMedia } from 'use-media';
 import classNames from 'classnames';
+import { Link } from '@/components/atoms/link';
 import tailwindConfig from '../../../../tailwind.config.js';
 
 type NavLinkProps = {
@@ -10,38 +9,31 @@ type NavLinkProps = {
   label: string;
   isActive?: boolean;
   className?: string;
+  onClick?: () => void;
 };
 
-const NavLink: FC<NavLinkProps> = ({ href, isActive, className, label }) => (
+const NavLink: FC<NavLinkProps> = ({ href, className, label, onClick }) => (
   <li className={classNames('inline-block py-2 md-992:py-0', className)}>
-    <Link href={href} passHref>
-      <a
-        className={classNames('transition-colors duration-300 ease-in-out focus:outline-none font-bold', {
-          'text-yellow-300': isActive,
-          'text-white': !isActive,
-        })}
-      >
-        {label}
-      </a>
+    <Link
+      href={href}
+      offset={-56}
+      activeClass="text-yellow-300"
+      className="font-bold text-white cursor-pointer transition-colors duration-300 ease-in-out focus:outline-none"
+      onClick={onClick}
+    >
+      {label}
     </Link>
   </li>
 );
 
-const LogoLink: FC = () => {
-  const router = useRouter();
-  const onHomePage = router.pathname === '/';
-
-  return (
-    <Link href="/" passHref>
-      <a aria-current={onHomePage ? 'page' : 'false'} className="align-bottom">
-        <span className="inline-flex items-end h-6">
-          <span className="inline-block text-2xl font-bold text-white leading-5">Keionne</span>
-          <span className="inline-block w-2 h-2 ml-1 bg-pink-300 rounded" />
-        </span>
-      </a>
-    </Link>
-  );
-};
+const LogoLink: FC = () => (
+  <Link href="/" className="align-bottom">
+    <span className="inline-flex items-end h-6">
+      <span className="inline-block text-2xl font-bold text-white leading-5">Keionne</span>
+      <span className="inline-block w-2 h-2 ml-1 bg-pink-300 rounded" />
+    </span>
+  </Link>
+);
 
 type NavToggleButtonProps = {
   id?: string;
@@ -86,11 +78,15 @@ export const Header: FC<HeaderProps> = ({ id, className }) => {
   const [isNavOpen, setNavOpen] = useState(false);
   const isDesktopOrTablet = useMedia({ minWidth: tailwindConfig.theme.screens['md-992'] });
 
-  const router = useRouter();
-
   const toggleNavMenu = () => {
     const navOpened = !isNavOpen;
     setNavOpen(navOpened);
+  };
+
+  const onNavLinkClicked = () => {
+    if (!isDesktopOrTablet) {
+      setNavOpen(false);
+    }
   };
 
   const navLinks = [
@@ -116,16 +112,13 @@ export const Header: FC<HeaderProps> = ({ id, className }) => {
     },
     {
       label: 'Blog',
-      href: '#blog',
+      href: '/blog',
     },
     {
       label: 'Contact',
       href: '#contact',
     },
-  ].map((navLink) => ({
-    ...navLink,
-    isActive: router.pathname === navLink.href || router.asPath.endsWith(navLink.href),
-  }));
+  ];
 
   return (
     <header
@@ -150,8 +143,8 @@ export const Header: FC<HeaderProps> = ({ id, className }) => {
               'flex-col w-full flex-1 md-992:flex md-992:flex-row md-992:flex-auto md-992:mt-0 md-992:w-auto md-992:items-center md-992:justify-center md-992:-mx-6'
             )}
           >
-            {navLinks.map((navLink) => (
-              <NavLink key={navLink.href} className="md-992:px-6" {...navLink} />
+            {navLinks.map(({ href, ...rest }) => (
+              <NavLink key={href} className="md-992:px-6" href={href} onClick={onNavLinkClicked} {...rest} />
             ))}
           </ul>
         </nav>

@@ -28,13 +28,14 @@ export const Skills: FC<SkillsProps> = ({ id, className, title, skillGroups }) =
   <Section id={id} title={title} className={className}>
     <div className="flex flex-wrap -mx-6">
       {skillGroups.map(({ title: groupTitle, skills }, i) => (
-        <div className="w-full px-6 md:flex-[0_0_33%] md:max-w-[33%]">
+        <div className="w-full px-6 md:flex-[0_0_33%] md:max-w-[33%]" key={groupTitle}>
           <h3 className="mb-10 text-xl font-semibold text-purple-600">{groupTitle}</h3>
 
           <div>
             {skills.map(({ title: skillTitle, percent }) => (
               <ProgressBar
                 id={`${groupTitle}-${skillTitle}`}
+                key={`${groupTitle}-${skillTitle}`}
                 label={skillTitle}
                 value={percent}
                 colorClassName={classNames(skillGroupColors[i])}
