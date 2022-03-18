@@ -19,7 +19,6 @@ export const NavLink: FC<LinkProps> = ({
   onClick,
   ...props
 }) => {
-  console.log(props);
   return (
     <NextLink {...(props as NLinkProps)} href={href} passHref scroll={false}>
       <a

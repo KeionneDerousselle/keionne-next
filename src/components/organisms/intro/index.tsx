@@ -196,7 +196,7 @@ const ScrollDown: FC = () => (
       spy
       hashSpy
       smooth
-      offset={-56}
+      offset={-112}
     >
       <span>Scroll Down</span>
       <span className="relative w-5 border-2 border-white scrolldown__mouse rounded-2xl mt-[10px] h-[26px]">
