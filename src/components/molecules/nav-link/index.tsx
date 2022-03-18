@@ -17,18 +17,21 @@ export const NavLink: FC<LinkProps> = ({
   isActive,
   activeClassName,
   onClick,
-  ...other
-}) => (
-  <NextLink {...(other as LinkProps)} href={href} passHref>
-    <a
-      onClick={() => onClick(href)}
-      className={classNames(
-        'font-bold cursor-pointer transition-colors duration-300 ease-in-out focus:outline-none',
-        className,
-        { [activeClassName]: isActive }
-      )}
-    >
-      {children}
-    </a>
-  </NextLink>
-);
+  ...props
+}) => {
+  console.log(props);
+  return (
+    <NextLink {...(props as NLinkProps)} href={href} passHref scroll={false}>
+      <a
+        onClick={() => onClick(href)}
+        className={classNames(
+          'font-bold cursor-pointer transition-colors duration-300 ease-in-out focus:outline-none',
+          className,
+          { [activeClassName]: isActive }
+        )}
+      >
+        {children}
+      </a>
+    </NextLink>
+  );
+};

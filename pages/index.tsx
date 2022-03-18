@@ -16,8 +16,8 @@ export default function Home({ aboutMe, skills }: HomePageProps): ReactElement {
     <Layout>
       <Intro id="intro" />
       <div className="k-container">
-        <AboutMe id="about" {...aboutMe} className="mt-28" />
-        <Skills id="skills" {...skills} className="mt-28" />
+        <AboutMe id="about" {...aboutMe} className="mt-28 scroll-mt-28" />
+        <Skills id="skills" {...skills} className="mt-28 scroll-mt-28" />
       </div>
     </Layout>
   );

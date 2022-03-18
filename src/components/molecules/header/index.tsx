@@ -60,7 +60,7 @@ export type HeaderProps = {
 export const Header: FC<HeaderProps> = ({ id, className }) => {
   const [isNavOpen, setNavOpen] = useState(false);
   const [sectionElements, setSectionElements] = useState<Element[]>([]);
-  const [elInView] = useGetCurrentElementInView({ elements: sectionElements });
+  const [elInView] = useGetCurrentElementInView({ elements: sectionElements, options: { offset: -68.5 } });
   const router = useRouter();
   const isDesktopOrTablet = useMedia({ minWidth: tailwindConfig.theme.screens['md-992'] });
 
@@ -160,7 +160,6 @@ export const Header: FC<HeaderProps> = ({ id, className }) => {
                     isActive={isActive}
                     activeClassName="text-yellow-300"
                     className="text-white"
-                    replace
                   >
                     {label}
                   </NavLink>
