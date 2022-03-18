@@ -4180,6 +4180,11 @@ react-scroll@^1.8.5:
     lodash.throttle "^4.1.1"
     prop-types "^15.7.2"
 
+react-scrollspy-navigation@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-scrollspy-navigation/-/react-scrollspy-navigation-1.0.2.tgz#51f77a48de497b7418036965a1a964259dc41606"
+  integrity sha512-4cuQgTu35GoP9p3wBNL0VLPQSQg04QchVR6oTu+PgBO+dVsUeEuVbxeOAcGrP8DOPqXl4FsodG0CIINna4JtFg==
+
 react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"

@@ -1,11 +1,10 @@
 html {
-  @apply font-rubik box-border;
+  @apply font-rubik box-border scroll-smooth antialiased;
   word-spacing: 1px;
   font-family: Rubik, sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
 }
 
 html,

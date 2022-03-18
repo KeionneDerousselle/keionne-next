@@ -19,6 +19,7 @@
       "@/pages/*": ["pages/*"],
       "@/api/*": ["src/api/*"],
       "@/hooks/*": ["src/hooks/*"],
+      "@/context/*": ["src/context/*"],
       "@/components/*": ["src/components/*"],
       "@/utils/*": ["src/utils/*"],
       "@/styles/*": ["styles/*"]

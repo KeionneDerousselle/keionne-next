@@ -43,6 +43,96 @@ export const AboutMe: FC<AboutMeProps> = ({ id, className, title, blurbDescripti
       </AvatarContainer>
 
       <SpeechBubble blurbTitle={blurbTitle} blurbDescription={blurbDescription} ctaLabel={ctaLabel} />
+
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus sint laudantium quis, illo quos adipisci
+        deleniti exercitationem laboriosam. Nostrum eum quam saepe! Eos sit quia voluptatum ratione quidem quod aliquid.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nihil distinctio obcaecati, voluptatibus
+        voluptates ut corporis iusto aut quos ad, non cumque unde optio maxime possimus amet est quis assumenda. Lorem,
+        ipsum dolor sit amet consectetur adipisicing elit. Vel culpa voluptatibus sunt omnis voluptatum non, sit tenetur
+        nihil ratione magnam voluptas facilis accusantium eius, quae alias in consequuntur. Distinctio, non. Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Nemo quibusdam assumenda laborum cupiditate saepe qui ducimus
+        corrupti, distinctio incidunt veniam amet veritatis, debitis consequuntur minus, iure dolores nobis mollitia
+        possimus!
+      </p>
+
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus sint laudantium quis, illo quos adipisci
+        deleniti exercitationem laboriosam. Nostrum eum quam saepe! Eos sit quia voluptatum ratione quidem quod aliquid.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nihil distinctio obcaecati, voluptatibus
+        voluptates ut corporis iusto aut quos ad, non cumque unde optio maxime possimus amet est quis assumenda. Lorem,
+        ipsum dolor sit amet consectetur adipisicing elit. Vel culpa voluptatibus sunt omnis voluptatum non, sit tenetur
+        nihil ratione magnam voluptas facilis accusantium eius, quae alias in consequuntur. Distinctio, non. Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Nemo quibusdam assumenda laborum cupiditate saepe qui ducimus
+        corrupti, distinctio incidunt veniam amet veritatis, debitis consequuntur minus, iure dolores nobis mollitia
+        possimus!
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus sint laudantium quis, illo quos adipisci
+        deleniti exercitationem laboriosam. Nostrum eum quam saepe! Eos sit quia voluptatum ratione quidem quod aliquid.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nihil distinctio obcaecati, voluptatibus
+        voluptates ut corporis iusto aut quos ad, non cumque unde optio maxime possimus amet est quis assumenda. Lorem,
+        ipsum dolor sit amet consectetur adipisicing elit. Vel culpa voluptatibus sunt omnis voluptatum non, sit tenetur
+        nihil ratione magnam voluptas facilis accusantium eius, quae alias in consequuntur. Distinctio, non. Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Nemo quibusdam assumenda laborum cupiditate saepe qui ducimus
+        corrupti, distinctio incidunt veniam amet veritatis, debitis consequuntur minus, iure dolores nobis mollitia
+        possimus!
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus sint laudantium quis, illo quos adipisci
+        deleniti exercitationem laboriosam. Nostrum eum quam saepe! Eos sit quia voluptatum ratione quidem quod aliquid.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nihil distinctio obcaecati, voluptatibus
+        voluptates ut corporis iusto aut quos ad, non cumque unde optio maxime possimus amet est quis assumenda. Lorem,
+        ipsum dolor sit amet consectetur adipisicing elit. Vel culpa voluptatibus sunt omnis voluptatum non, sit tenetur
+        nihil ratione magnam voluptas facilis accusantium eius, quae alias in consequuntur. Distinctio, non. Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Nemo quibusdam assumenda laborum cupiditate saepe qui ducimus
+        corrupti, distinctio incidunt veniam amet veritatis, debitis consequuntur minus, iure dolores nobis mollitia
+        possimus!
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus sint laudantium quis, illo quos adipisci
+        deleniti exercitationem laboriosam. Nostrum eum quam saepe! Eos sit quia voluptatum ratione quidem quod aliquid.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nihil distinctio obcaecati, voluptatibus
+        voluptates ut corporis iusto aut quos ad, non cumque unde optio maxime possimus amet est quis assumenda. Lorem,
+        ipsum dolor sit amet consectetur adipisicing elit. Vel culpa voluptatibus sunt omnis voluptatum non, sit tenetur
+        nihil ratione magnam voluptas facilis accusantium eius, quae alias in consequuntur. Distinctio, non. Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Nemo quibusdam assumenda laborum cupiditate saepe qui ducimus
+        corrupti, distinctio incidunt veniam amet veritatis, debitis consequuntur minus, iure dolores nobis mollitia
+        possimus!
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus sint laudantium quis, illo quos adipisci
+        deleniti exercitationem laboriosam. Nostrum eum quam saepe! Eos sit quia voluptatum ratione quidem quod aliquid.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nihil distinctio obcaecati, voluptatibus
+        voluptates ut corporis iusto aut quos ad, non cumque unde optio maxime possimus amet est quis assumenda. Lorem,
+        ipsum dolor sit amet consectetur adipisicing elit. Vel culpa voluptatibus sunt omnis voluptatum non, sit tenetur
+        nihil ratione magnam voluptas facilis accusantium eius, quae alias in consequuntur. Distinctio, non. Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Nemo quibusdam assumenda laborum cupiditate saepe qui ducimus
+        corrupti, distinctio incidunt veniam amet veritatis, debitis consequuntur minus, iure dolores nobis mollitia
+        possimus!
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus sint laudantium quis, illo quos adipisci
+        deleniti exercitationem laboriosam. Nostrum eum quam saepe! Eos sit quia voluptatum ratione quidem quod aliquid.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nihil distinctio obcaecati, voluptatibus
+        voluptates ut corporis iusto aut quos ad, non cumque unde optio maxime possimus amet est quis assumenda. Lorem,
+        ipsum dolor sit amet consectetur adipisicing elit. Vel culpa voluptatibus sunt omnis voluptatum non, sit tenetur
+        nihil ratione magnam voluptas facilis accusantium eius, quae alias in consequuntur. Distinctio, non. Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Nemo quibusdam assumenda laborum cupiditate saepe qui ducimus
+        corrupti, distinctio incidunt veniam amet veritatis, debitis consequuntur minus, iure dolores nobis mollitia
+        possimus!
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus sint laudantium quis, illo quos adipisci
+        deleniti exercitationem laboriosam. Nostrum eum quam saepe! Eos sit quia voluptatum ratione quidem quod aliquid.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nihil distinctio obcaecati, voluptatibus
+        voluptates ut corporis iusto aut quos ad, non cumque unde optio maxime possimus amet est quis assumenda. Lorem,
+        ipsum dolor sit amet consectetur adipisicing elit. Vel culpa voluptatibus sunt omnis voluptatum non, sit tenetur
+        nihil ratione magnam voluptas facilis accusantium eius, quae alias in consequuntur. Distinctio, non. Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Nemo quibusdam assumenda laborum cupiditate saepe qui ducimus
+        corrupti, distinctio incidunt veniam amet veritatis, debitis consequuntur minus, iure dolores nobis mollitia
+        possimus!
+      </p>
     </div>
   </Section>
 );

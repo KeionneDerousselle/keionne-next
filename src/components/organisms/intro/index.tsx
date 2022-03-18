@@ -215,7 +215,7 @@ export const Intro: FC<IntroProps> = ({ id, className }) => (
   <section
     id={id}
     className={classNames(
-      'relative flex items-center h-screen min-h-screen bg-purple-700 pt-[300px] md:p-0',
+      'relative flex items-center h-[101vh] min-h-[101vh] bg-purple-700 pt-[300px] md:p-0',
       className
     )}
   >

@@ -1,38 +1,21 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import NextLink from 'next/link';
 import { useMedia } from 'use-media';
 import classNames from 'classnames';
-import { Link } from '@/components/atoms/link';
+import { NavLink } from '@/components/molecules/nav-link';
 import tailwindConfig from '../../../../tailwind.config.js';
-
-type NavLinkProps = {
-  href: string;
-  label: string;
-  isActive?: boolean;
-  className?: string;
-  onClick?: () => void;
-};
-
-const NavLink: FC<NavLinkProps> = ({ href, className, label, onClick }) => (
-  <li className={classNames('inline-block py-2 md-992:py-0', className)}>
-    <Link
-      href={href}
-      offset={-56}
-      activeClass="text-yellow-300"
-      className="font-bold text-white cursor-pointer transition-colors duration-300 ease-in-out focus:outline-none"
-      onClick={onClick}
-    >
-      {label}
-    </Link>
-  </li>
-);
+import { useGetCurrentElementInView } from '@/hooks/useGetCurrentElementInView';
 
 const LogoLink: FC = () => (
-  <Link href="/" className="align-bottom">
-    <span className="inline-flex items-end h-6">
-      <span className="inline-block text-2xl font-bold text-white leading-5">Keionne</span>
-      <span className="inline-block w-2 h-2 ml-1 bg-pink-300 rounded" />
-    </span>
-  </Link>
+  <NextLink href="/" passHref>
+    <a className="align-bottom">
+      <span className="inline-flex items-end h-6">
+        <span className="inline-block text-2xl font-bold text-white leading-5">Keionne</span>
+        <span className="inline-block w-2 h-2 ml-1 bg-pink-300 rounded" />
+      </span>
+    </a>
+  </NextLink>
 );
 
 type NavToggleButtonProps = {
@@ -76,6 +59,9 @@ export type HeaderProps = {
 
 export const Header: FC<HeaderProps> = ({ id, className }) => {
   const [isNavOpen, setNavOpen] = useState(false);
+  const [sectionElements, setSectionElements] = useState<Element[]>([]);
+  const [elInView] = useGetCurrentElementInView({ elements: sectionElements });
+  const router = useRouter();
   const isDesktopOrTablet = useMedia({ minWidth: tailwindConfig.theme.screens['md-992'] });
 
   const toggleNavMenu = () => {
@@ -92,23 +78,23 @@ export const Header: FC<HeaderProps> = ({ id, className }) => {
   const navLinks = [
     {
       label: 'About',
-      href: '#about',
+      href: '/#about',
     },
     {
       label: 'Skills',
-      href: '#skills',
+      href: '/#skills',
     },
     {
       label: 'Experience',
-      href: '#experience',
+      href: '/#experience',
     },
     {
       label: 'Education',
-      href: '#education',
+      href: '/#education',
     },
     {
       label: 'Portfolio',
-      href: '#portfolio',
+      href: '/#portfolio',
     },
     {
       label: 'Blog',
@@ -116,9 +102,20 @@ export const Header: FC<HeaderProps> = ({ id, className }) => {
     },
     {
       label: 'Contact',
-      href: '#contact',
+      href: '/#contact',
     },
   ];
+
+  useEffect(() => {
+    const sections = navLinks
+      .map(({ href }) => {
+        const anchor = href.split('#')[1];
+        return document.querySelector(`section[id="${anchor}"]`);
+      })
+      .filter((el) => !!el);
+
+    setSectionElements(sections);
+  }, []);
 
   return (
     <header
@@ -143,9 +140,33 @@ export const Header: FC<HeaderProps> = ({ id, className }) => {
               'flex-col w-full flex-1 md-992:flex md-992:flex-row md-992:flex-auto md-992:mt-0 md-992:w-auto md-992:items-center md-992:justify-center md-992:-mx-6'
             )}
           >
-            {navLinks.map(({ href, ...rest }) => (
-              <NavLink key={href} className="md-992:px-6" href={href} onClick={onNavLinkClicked} {...rest} />
-            ))}
+            {navLinks.map(({ href, label }) => {
+              const { pathname } = router;
+              let isActive = false;
+
+              if (href.includes('#')) {
+                const [hrefPath, hrefElId] = href.split('#');
+
+                isActive = pathname === hrefPath && elInView === `#${hrefElId}`;
+              } else {
+                isActive = pathname === href;
+              }
+
+              return (
+                <li key={href} className="inline-block py-2 md-992:py-0 md-992:px-6">
+                  <NavLink
+                    href={href}
+                    onClick={onNavLinkClicked}
+                    isActive={isActive}
+                    activeClassName="text-yellow-300"
+                    className="text-white"
+                    replace
+                  >
+                    {label}
+                  </NavLink>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>

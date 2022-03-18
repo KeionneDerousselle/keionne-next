@@ -24,19 +24,19 @@ export const ProgressBar: FC<ProgressBarProps> = ({ id, className, label, value,
       </label>
 
       <div className="overflow-hidden shadow-none bg-slate-400 progressbar__background h-[10px] rounded-2xl">
-        <Slide left>
-          <div className="w-full h-full">
-            <div
-              id={id}
-              role="progressbar"
-              style={progressBarStyle}
-              aria-valuemin={0}
-              aria-valuenow={normalizedProgress}
-              aria-valuemax={100}
-              className={classNames('h-full rounded-2xl transition-all', colorClassName)}
-            />
-          </div>
-        </Slide>
+        {/* <Slide left> */}
+        <div className="w-full h-full">
+          <div
+            id={id}
+            role="progressbar"
+            style={progressBarStyle}
+            aria-valuemin={0}
+            aria-valuenow={normalizedProgress}
+            aria-valuemax={100}
+            className={classNames('h-full rounded-2xl transition-all', colorClassName)}
+          />
+        </div>
+        {/* </Slide> */}
       </div>
     </div>
   );
