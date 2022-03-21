@@ -1,56 +1,12 @@
 import { FC, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import NextLink from 'next/link';
 import { useMedia } from 'use-media';
 import classNames from 'classnames';
-import { NavLink } from '@/components/molecules/nav-link';
-import tailwindConfig from '../../../../tailwind.config.js';
 import { useGetCurrentElementInView } from '@/hooks/useGetCurrentElementInView';
-
-const LogoLink: FC = () => (
-  <NextLink href="/" passHref>
-    <a className="align-bottom">
-      <span className="inline-flex items-end h-6">
-        <span className="inline-block text-2xl font-bold text-white leading-5">Keionne</span>
-        <span className="inline-block w-2 h-2 ml-1 bg-pink-300 rounded" />
-      </span>
-    </a>
-  </NextLink>
-);
-
-type NavToggleButtonProps = {
-  id?: string;
-  className?: string;
-  isNavOpen: boolean;
-  onClick: () => void;
-};
-
-const NavToggleButton: FC<NavToggleButtonProps> = ({ id, isNavOpen, onClick }) => (
-  <button
-    id={id}
-    type="button"
-    aria-label="Toggle Main Navigation Menu"
-    aria-controls="header-nav-menu"
-    aria-expanded={isNavOpen}
-    className={classNames(
-      'header-nav-menu-toggle inline-block rounded md-992:hidden h-9 w-9 border border-purple-200',
-      'before:block before:w-4 before:h-0.5 before:rounded before:bg-purple-200 before:transition-all before:duration-300 before:mx-auto',
-      'after:block after:w-4 after:h-0.5 after:rounded after:bg-purple-200 after:transition-all after:duration-300 after:mx-auto',
-
-      {
-        'before:translate-y-[0.23rem] before:rotate-[135deg]': isNavOpen,
-        'after:translate-y-[-0.23rem] after:rotate-[-135deg]': isNavOpen,
-      }
-    )}
-    onClick={onClick}
-  >
-    <span
-      className={classNames('block w-4 h-0.5 rounded bg-purple-200 transition-all duration-300 mx-auto my-0.5', {
-        'scale-0': isNavOpen,
-      })}
-    />
-  </button>
-);
+import { NavLink } from '@/components/molecules/nav-link';
+import { LogoLink } from '@/components/atoms/logo-link';
+import { NavToggleButton } from '@/components/atoms/nav-toggle';
+import tailwindConfig from '../../../../tailwind.config.js';
 
 export type HeaderProps = {
   id?: string;
