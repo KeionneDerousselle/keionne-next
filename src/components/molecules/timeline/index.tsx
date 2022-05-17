@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import classNames from 'classnames';
-import { TimelineItemProps, TimelineItem } from './item';
+import { TimelineItemProps, TimelineItem, TimelineItemColor } from './item';
 
 export type TimelineProps = {
   id: string;
@@ -8,10 +8,10 @@ export type TimelineProps = {
   items?: TimelineItemProps[];
 };
 
-const timelineBgColors = {
-  0: 'bg-blue-300',
-  1: 'bg-yellow-400',
-  2: 'bg-pink-200',
+const timelineBgColors: Record<number, TimelineItemColor> = {
+  0: 'blue',
+  1: 'yellow',
+  2: 'pink',
 };
 
 export const Timeline: FC<TimelineProps> = ({ id, className, items, children }) => (
@@ -27,7 +27,7 @@ export const Timeline: FC<TimelineProps> = ({ id, className, items, children }) 
           <TimelineItem
             key={id}
             id={id}
-            className={classNames(timelineBgColors[(index + 3) % 3], 'text-white')}
+            color={timelineBgColors[(index + 3) % 3]}
             right={index % 2 !== 0}
             {...itemProps}
           />
