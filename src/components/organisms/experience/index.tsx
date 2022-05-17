@@ -2,75 +2,37 @@ import { FC } from 'react';
 import { Section } from '@/components/molecules/section';
 import { Timeline } from '@/components/molecules/timeline';
 
+export type Job = {
+  companyName: string;
+  positionTitle: string;
+  startDate: string;
+  endDate: string;
+  summary: string;
+  content: string;
+};
+
 export type ExperienceProps = {
   id: string;
   className?: string;
   title: string;
+  jobs: Job[];
 };
 
-export const Experience: FC<ExperienceProps> = ({ id, className, title }) => {
-  const items = [
-    {
-      id: 'experience-1',
-      date: '2019-present',
-      title: 'Software Engineer',
-      subtitle: 'Google',
-      children: (
-        <p>
-          {' '}
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam perspiciatis eligendi doloribus ratione
-          soluta necessitatibus alias maiores nulla ipsa quis labore, laudantium porro at nostrum ad quos aliquam, autem
-          deserunt.
-        </p>
-      ),
-    },
-    {
-      id: 'experience-2',
-      date: '2019-present',
-      title: 'Software Engineer',
-      subtitle: 'Google',
-      children: (
-        <p>
-          {' '}
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam perspiciatis eligendi doloribus ratione
-          soluta necessitatibus alias maiores nulla ipsa quis labore, laudantium porro at nostrum ad quos aliquam, autem
-          deserunt.
-        </p>
-      ),
-    },
-    {
-      id: 'experience-3',
-      date: '2019-present',
-      title: 'Software Engineer',
-      subtitle: 'Google',
-      children: (
-        <p>
-          {' '}
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam perspiciatis eligendi doloribus ratione
-          soluta necessitatibus alias maiores nulla ipsa quis labore, laudantium porro at nostrum ad quos aliquam, autem
-          deserunt.
-        </p>
-      ),
-    },
-    {
-      id: 'experience-4',
-      date: '2019-present',
-      title: 'Software Engineer',
-      subtitle: 'Google',
-      children: (
-        <p>
-          {' '}
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam perspiciatis eligendi doloribus ratione
-          soluta necessitatibus alias maiores nulla ipsa quis labore, laudantium porro at nostrum ad quos aliquam, autem
-          deserunt.
-        </p>
-      ),
-    },
-  ];
+export const Experience: FC<ExperienceProps> = ({ id, className, title, jobs }) => {
+  const timelineItems = jobs
+    .map(({ companyName, positionTitle, startDate }) => ({
+      id: `${companyName}-${positionTitle}`,
+      date: new Date(startDate),
+      title: companyName,
+      subtitle: positionTitle,
+      content:
+        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi asperiores cupiditate ipsa, vero sit, est neque obcaecati distinctio non velit, ipsam corporis atque doloribus maiores quae? Dolor doloribus quas nulla.',
+    }))
+    .sort((a, b) => b.date.getTime() - a.date.getTime());
 
   return (
     <Section id={id} title={title} className={className}>
-      <Timeline id="experience-timeline" items={items}></Timeline>
+      <Timeline id="experience-timeline" items={timelineItems}></Timeline>
     </Section>
   );
 };

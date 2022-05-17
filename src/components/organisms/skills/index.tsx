@@ -3,17 +3,21 @@ import { Section } from '@/components/molecules/section';
 import { ProgressBar } from '@/components/atoms/progress-bar';
 import classNames from 'classnames';
 
+export type Skill = {
+  title: string;
+  percent: number;
+};
+
+export type SkillGroup = {
+  title: string;
+  skills: Skill[];
+};
+
 export type SkillsProps = {
   id: string;
   className?: string;
   title: string;
-  skillGroups: {
-    title: string;
-    skills: {
-      title: string;
-      percent: number;
-    }[];
-  }[];
+  skillGroups: SkillGroup[];
 };
 
 // Using maps so that the full Tailwind classes can be seen for purging

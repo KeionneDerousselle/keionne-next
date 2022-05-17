@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import classNames from 'classnames';
-import { TimelineItemProps, TimelineItem, TimelineItemColor } from './item';
+import { TimelineItem, TimelineItemColor } from './item';
 
 export type TimelineProps = {
   id: string;
   className?: string;
-  items?: TimelineItemProps[];
+  items?: TimelineItem[];
 };
 
 const timelineBgColors: Record<number, TimelineItemColor> = {
