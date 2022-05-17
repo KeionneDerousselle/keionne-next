@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react';
 import classNames from 'classnames';
+import { useInView } from 'react-intersection-observer';
 
 export type TimelineItemColor = 'blue' | 'yellow' | 'pink';
 
@@ -39,20 +40,30 @@ const timelineItemColors = {
 };
 
 export const TimelineItem: FC<TimelineItemProps> = ({ id, date, title, subtitle, right, color, content }) => {
+  const { ref, inView } = useInView({ triggerOnce: true });
   const { contentBgColor, textColor, rightArrowColor, leftArrowColor } = timelineItemColors[color];
   const formattedDate =
     typeof date === 'string' ? date : date.toLocaleString('en-US', { month: 'short', year: 'numeric' });
 
   return (
     <li
+      ref={ref}
       id={id}
       className={classNames(
-        'relative left-0 pl-14 py-3 w-full md:w-1/2',
+        // content
+        'relative opacity-0 left-0 pl-14 py-3 w-full md:w-1/2 transition-all duration-500 ease-in-out',
         // dot
         'after:absolute after:w-5 after:h-5 after:rounded-full after:z-10 after:top-5 after:left-0 after:bg-pink-200',
         //arrow
         'before:absolute before:w-0 before:h-0 before:border-l-0 before:border-t-[20px] before:border-t-transparent before:border-b-[20px] before:border-b-transparent before:border-r-[20px] before:left-9 before:top-[15%] before:translate-x-0',
         rightArrowColor,
+
+        // animations on scroll
+        {
+          'opacity-100 transform-none': inView,
+          'transform-gpu translate-x-56': !inView,
+          'md:-translate-x-56': !inView && !right,
+        },
 
         right
           ? 'md:left-1/2 md:pl-14 md:after:-left-3'

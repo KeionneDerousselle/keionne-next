@@ -19,7 +19,7 @@ export const Timeline: FC<TimelineProps> = ({ id, className, items, children }) 
     id={id}
     className={classNames(
       className,
-      'relative after:block after:absolute after:top-0 after:bottom-0 after:left-3 md:after:left-1/2 after:w-1 after:bg-pink-200 after:-ml-1'
+      'relative after:block after:absolute after:top-0 after:bottom-0 after:left-3 md:after:left-1/2 after:w-1 after:bg-pink-200 after:-ml-1 overflow-hidden'
     )}
   >
     {items

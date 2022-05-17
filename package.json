@@ -22,6 +22,7 @@
     "parallax-js": "^3.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-intersection-observer": "^9.1.0",
     "react-reveal": "^1.2.2",
     "react-text-loop": "^2.3.0",
     "use-media": "^1.4.0"
