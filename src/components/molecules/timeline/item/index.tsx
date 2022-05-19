@@ -25,6 +25,7 @@ const timelineItemColors = {
     rightArrowColor: 'before:border-r-blue-300',
     leftArrowColor: 'md:before:border-l-blue-300',
     dotColor: 'after:bg-blue-300',
+    contentShadowColor: 'shadow-[0_5px_20px_0_rgba(108,108,229,0.50)]',
   },
   yellow: {
     contentBgColor: 'bg-yellow-400',
@@ -32,6 +33,7 @@ const timelineItemColors = {
     rightArrowColor: 'before:border-r-yellow-400',
     leftArrowColor: 'md:before:border-l-yellow-400',
     dotColor: 'after:bg-yellow-400',
+    contentShadowColor: 'shadow-[0_5px_20px_0_rgba(249,215,76,0.50)]',
   },
   pink: {
     contentBgColor: 'bg-pink-200',
@@ -39,12 +41,14 @@ const timelineItemColors = {
     rightArrowColor: 'before:border-r-pink-200',
     leftArrowColor: 'md:before:border-l-pink-200',
     dotColor: 'after:bg-pink-200',
+    contentShadowColor: 'shadow-[0px_5px_20px_0px_rgba(249,123,139,0.50)]',
   },
 };
 
 export const TimelineItem: FC<TimelineItemProps> = ({ id, date, title, subtitle, right, color, content }) => {
   const { ref, inView } = useInView({ triggerOnce: true });
-  const { contentBgColor, textColor, rightArrowColor, leftArrowColor, dotColor } = timelineItemColors[color];
+  const { contentBgColor, textColor, rightArrowColor, leftArrowColor, dotColor, contentShadowColor } =
+    timelineItemColors[color];
   const formattedDate =
     typeof date === 'string' ? date : date.toLocaleString('en-US', { month: 'short', year: 'numeric' });
 
@@ -69,9 +73,10 @@ export const TimelineItem: FC<TimelineItemProps> = ({ id, date, title, subtitle,
       <div
         className={classNames(
           // content
-          'relative p-7 rounded-3xl opacity-0 transition-all duration-500 ease-in-out',
+          'relative p-7 rounded-3xl opacity-0 transition-all duration-500 ease-in-out hover:-translate-y-3',
           contentBgColor,
           textColor,
+          contentShadowColor,
 
           //arrow
           'before:absolute before:w-0 before:h-0 before:border-l-0 before:border-t-[15px] before:border-t-transparent before:border-b-[15px] before:border-b-transparent before:border-r-[15px] before:-left-3 before:top-[15%] before:translate-x-0',
