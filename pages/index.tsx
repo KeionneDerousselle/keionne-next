@@ -37,6 +37,7 @@ export default function Home({ aboutMe, skills, experience }: HomePageProps): Re
             Culpa quasi tempore eum numquam perspiciatis quisquam magni dolorem dolore. Mollitia sit deleniti
             blanditiis.
           </p>
+
           <button onClick={close}>Close me!</button>
         </Modal>
       </div>
