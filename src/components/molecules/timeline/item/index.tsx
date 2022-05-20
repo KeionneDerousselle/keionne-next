@@ -1,6 +1,7 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useState } from 'react';
 import classNames from 'classnames';
 import { useInView } from 'react-intersection-observer';
+import { Modal } from '@/components/molecules/modal';
 
 export type TimelineItemColor = 'blue' | 'yellow' | 'pink';
 
@@ -46,6 +47,7 @@ const timelineItemColors = {
 };
 
 export const TimelineItem: FC<TimelineItemProps> = ({ id, date, title, subtitle, right, color, content }) => {
+  const [showDetails, setShowDetails] = useState(false);
   const { ref, inView } = useInView({ triggerOnce: true });
   const { contentBgColor, textColor, rightArrowColor, leftArrowColor, dotColor, contentShadowColor } =
     timelineItemColors[color];
@@ -70,10 +72,12 @@ export const TimelineItem: FC<TimelineItemProps> = ({ id, date, title, subtitle,
           : 'md:left-0 md:pl-0 md:pr-14 md:after:-right-2 md:after:left-auto'
       )}
     >
-      <div
+      <button
+        type="button"
+        onClick={() => setShowDetails(true)}
         className={classNames(
           // content
-          'relative p-7 rounded-3xl opacity-0 transition-all duration-500 ease-in-out hover:-translate-y-3',
+          'relative appearance-none text-left p-7 rounded-3xl opacity-0 transition-all duration-500 ease-in-out hover:-translate-y-3',
           contentBgColor,
           textColor,
           contentShadowColor,
@@ -99,7 +103,14 @@ export const TimelineItem: FC<TimelineItemProps> = ({ id, date, title, subtitle,
         <h3 className="mb-1 text-xl font-bold">{title}</h3>
         <h4 className="mb-3 text-lg font-medium">{subtitle}</h4>
         {content}
-      </div>
+      </button>
+      <Modal id={`${id}-details-modal`} show={showDetails} onClose={() => setShowDetails(false)}>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem exercitationem sequi atque praesentium ut ex
+          culpa! Doloremque tenetur dolor amet aperiam nisi laudantium id, at cumque, inventore dolore, sequi
+          temporibus.
+        </p>
+      </Modal>
     </li>
   );
 };
