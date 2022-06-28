@@ -95,4 +95,4 @@ const BL: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, Button
   }
 };
 
-export const Button = forwardRef(BL) as PolymorphicButton;
+export const ButtonLink = forwardRef(BL) as PolymorphicButton;
