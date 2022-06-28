@@ -1,4 +1,4 @@
-import React, { forwardRef, ForwardedRef, ReactNode, PropsWithChildren } from 'react';
+import React, { forwardRef, ForwardedRef, ReactNode, PropsWithChildren, ForwardRefRenderFunction } from 'react';
 import Link, { LinkProps as NextLinkProps } from 'next/link';
 import classNames from 'classnames';
 
@@ -38,7 +38,7 @@ export type PolymorphicButton = {
 const isAnchor = (props: ButtonAnchorLinkProps): props is AnchorProps => props.href !== undefined;
 const isNextLink = (props: ButtonAnchorLinkProps): props is LinkProps => props.href !== undefined;
 
-export const ButtonLink = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonAnchorLinkProps>((props, ref) => {
+const BL: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, ButtonAnchorLinkProps> = (props, ref) => {
   const { href, className = '', children, right, loading, disabled, ...other } = props;
   const isAnchorLink = isAnchor(props);
   const isNextLinkLink = isNextLink(props);
@@ -93,4 +93,6 @@ export const ButtonLink = forwardRef<HTMLButtonElement | HTMLAnchorElement, Butt
       </button>
     );
   }
-}) as PolymorphicButton;
+};
+
+export const Button = forwardRef(BL) as PolymorphicButton;
