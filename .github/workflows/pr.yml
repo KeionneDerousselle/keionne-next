@@ -43,8 +43,8 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: yarn
 
-      - name: Build 🔨
-        run: yarn build
+      # - name: Build 🔨
+      #   run: yarn build
 
       - name: Run linter 👀
         run: yarn lint

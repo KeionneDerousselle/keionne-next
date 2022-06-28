@@ -12,10 +12,7 @@ export interface IntroProps {
 export const Intro: FC<IntroProps> = ({ id, className }) => (
   <section
     id={id}
-    className={classNames(
-      'relative flex items-center h-[100vh] min-h-[100vh] bg-purple-700 pt-[300px] md:p-0',
-      className
-    )}
+    className={classNames('relative flex items-center h-[100vh] min-h-[100vh] bg-purple-700', className)}
   >
     <div className="k-container">
       <div className="relative z-20 max-w-xl m-auto text-center">
