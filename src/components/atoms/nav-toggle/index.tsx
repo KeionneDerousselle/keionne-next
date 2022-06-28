@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
-export type NavToggleButtonProps = {
+export interface NavToggleButtonProps {
   id?: string;
   className?: string;
   isNavOpen: boolean;
   onClick: () => void;
-};
+}
 
 export const NavToggleButton: FC<NavToggleButtonProps> = ({ id, isNavOpen, onClick }) => (
   <button

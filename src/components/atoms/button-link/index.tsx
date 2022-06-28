@@ -1,28 +1,31 @@
-import React, { forwardRef, ForwardedRef, ReactNode } from 'react';
+import React, { forwardRef, ForwardedRef, ReactNode, PropsWithChildren, ForwardRefRenderFunction } from 'react';
 import Link, { LinkProps as NextLinkProps } from 'next/link';
 import classNames from 'classnames';
 
-export type ButtonProps = JSX.IntrinsicElements['button'] & {
-  className?: string;
-  href: undefined;
-  right?: ReactNode;
-  loading?: boolean;
-  disabled?: boolean;
-};
+export type ButtonProps = JSX.IntrinsicElements['button'] &
+  PropsWithChildren & {
+    className?: string;
+    href: undefined;
+    right?: ReactNode;
+    loading?: boolean;
+    disabled?: boolean;
+  };
 
-export type AnchorProps = JSX.IntrinsicElements['a'] & {
-  className?: string;
-  right?: ReactNode;
-  loading?: boolean;
-  disabled?: boolean;
-};
+export type AnchorProps = JSX.IntrinsicElements['a'] &
+  PropsWithChildren & {
+    className?: string;
+    right?: ReactNode;
+    loading?: boolean;
+    disabled?: boolean;
+  };
 
-export type LinkProps = NextLinkProps & {
-  className?: string;
-  right?: ReactNode;
-  loading?: boolean;
-  disabled?: boolean;
-};
+export type LinkProps = NextLinkProps &
+  PropsWithChildren & {
+    className?: string;
+    right?: ReactNode;
+    loading?: boolean;
+    disabled?: boolean;
+  };
 
 export type ButtonAnchorLinkProps = ButtonProps | AnchorProps | LinkProps;
 
@@ -35,7 +38,7 @@ export type PolymorphicButton = {
 const isAnchor = (props: ButtonAnchorLinkProps): props is AnchorProps => props.href !== undefined;
 const isNextLink = (props: ButtonAnchorLinkProps): props is LinkProps => props.href !== undefined;
 
-export const ButtonLink = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonAnchorLinkProps>((props, ref) => {
+const BL: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, ButtonAnchorLinkProps> = (props, ref) => {
   const { href, className = '', children, right, loading, disabled, ...other } = props;
   const isAnchorLink = isAnchor(props);
   const isNextLinkLink = isNextLink(props);
@@ -90,4 +93,6 @@ export const ButtonLink = forwardRef<HTMLButtonElement | HTMLAnchorElement, Butt
       </button>
     );
   }
-}) as PolymorphicButton;
+};
+
+export const ButtonLink = forwardRef(BL) as PolymorphicButton;

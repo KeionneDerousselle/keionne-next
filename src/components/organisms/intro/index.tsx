@@ -4,10 +4,10 @@ import { Parallax } from './parallax';
 import { AnimatedScrollIndicator } from './animated-scroll-indicator';
 import TextLoop from 'react-text-loop';
 
-export type IntroProps = {
+export interface IntroProps {
   id: string;
   className?: string;
-};
+}
 
 export const Intro: FC<IntroProps> = ({ id, className }) => (
   <section
@@ -21,7 +21,7 @@ export const Intro: FC<IntroProps> = ({ id, className }) => (
       <div className="relative z-20 max-w-xl m-auto text-center">
         <h1 className="mb-2 text-3xl font-bold text-white">Keionne Derousselle</h1>
         <h2 className="text-lg font-bold text-white">
-          I'm a{' '}
+          I&apos;m a&nbsp;
           <TextLoop springConfig={{ stiffness: 180, damping: 15 }}>
             <span>senior software engineer</span>
             <span>full stack engineer</span>

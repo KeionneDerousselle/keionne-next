@@ -8,10 +8,10 @@ import { LogoLink } from '@/components/atoms/logo-link';
 import { NavToggleButton } from '@/components/atoms/nav-toggle';
 import tailwindConfig from '../../../../tailwind.config.js';
 
-export type HeaderProps = {
+export interface HeaderProps {
   id?: string;
   className?: string;
-};
+}
 
 export const Header: FC<HeaderProps> = ({ id, className }) => {
   const [isNavOpen, setNavOpen] = useState(false);
@@ -76,7 +76,7 @@ export const Header: FC<HeaderProps> = ({ id, className }) => {
   return (
     <header
       id={id}
-      className={classNames('header fixed w-full py-5 top-0 left-0 z-50 overflow-hidden bg-purple-700', className)}
+      className={classNames('header fixed w-full py-5 top-0 left-0 z-30 overflow-hidden bg-purple-700', className)}
     >
       <div className="k-container">
         <nav

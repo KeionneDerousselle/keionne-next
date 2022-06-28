@@ -1,16 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
 
-export type CurrentElementInView = {
+export interface CurrentElementInView {
   currentElementInView: string;
-};
+}
 
-export type CurrentElementInViewProviderProps = {
+export interface CurrentElementInViewProviderProps {
   elements: Element[];
   options?: {
     offset?: number;
     root?: HTMLElement;
   };
-};
+}
 
 export const useGetCurrentElementInView = ({ elements, options }: CurrentElementInViewProviderProps): string[] => {
   const [currentElementInView, setCurrentElementInView] = useState('');

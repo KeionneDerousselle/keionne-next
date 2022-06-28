@@ -1,25 +1,17 @@
+import { Job } from '@/components/organisms/experience';
+import { Skill } from '@/components/organisms/skills';
 import { Entry } from 'contentful';
 
-export interface AboutMeContent {
+export interface ContentfulAboutMeSection {
   title: string;
   blurbTitle: string;
   blurbDescription: string;
   ctaLabel: string;
 }
 
-export interface HomePageContent {
-  aboutMe: AboutMeContent;
-  skills: SkillsSection;
-}
-
-export interface ContentfulSkill {
-  title: string;
-  percent: number;
-}
-
 export interface ContentfulSkillGroup {
   title: string;
-  skills: Entry<ContentfulSkill>[];
+  skills: Entry<Skill>[];
 }
 
 export interface ContentfulSkillsSection {
@@ -27,17 +19,7 @@ export interface ContentfulSkillsSection {
   skillGroups: Entry<ContentfulSkillGroup>[];
 }
 
-export interface Skill {
+export interface ContentfulExperienceSection {
   title: string;
-  percent: number;
-}
-
-export interface SkillGroup {
-  title: string;
-  skills: Skill[];
-}
-
-export interface SkillsSection {
-  title: string;
-  skillGroups: SkillGroup[];
+  jobs: Entry<Job>[];
 }

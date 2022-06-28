@@ -1,14 +1,14 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import NextLink, { LinkProps as NLinkProps } from 'next/link';
 import classNames from 'classnames';
 
-export type LinkProps = NLinkProps & {
+export interface LinkProps extends PropsWithChildren, NLinkProps {
   href: string;
   isActive?: boolean;
   activeClassName?: string;
   className?: string;
   onClick?: (href: string) => void;
-};
+}
 
 export const NavLink: FC<LinkProps> = ({
   href,

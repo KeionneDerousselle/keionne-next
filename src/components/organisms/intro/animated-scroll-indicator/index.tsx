@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import NextLink from 'next/link';
 
-export type AnimatedScrollIndicatorProps = {
+export interface AnimatedScrollIndicatorProps {
   className?: string;
   href: string;
-};
+}
 
 export const AnimatedScrollIndicator: FC<AnimatedScrollIndicatorProps> = ({ href }) => (
   <div className="absolute left-0 z-20 w-full bottom-10 scrolldown">

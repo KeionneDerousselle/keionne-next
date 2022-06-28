@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { SectionTitle } from '@/components/atoms/section-title';
 import classNames from 'classnames';
 
-export interface SectionProps {
+export interface SectionProps extends PropsWithChildren {
   id?: string;
   title: string;
   className?: string;
