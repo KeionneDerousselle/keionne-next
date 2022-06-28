@@ -1,28 +1,31 @@
-import React, { forwardRef, ForwardedRef, ReactNode } from 'react';
+import React, { forwardRef, ForwardedRef, ReactNode, PropsWithChildren } from 'react';
 import Link, { LinkProps as NextLinkProps } from 'next/link';
 import classNames from 'classnames';
 
-export type ButtonProps = JSX.IntrinsicElements['button'] & {
-  className?: string;
-  href: undefined;
-  right?: ReactNode;
-  loading?: boolean;
-  disabled?: boolean;
-};
+export type ButtonProps = JSX.IntrinsicElements['button'] &
+  PropsWithChildren & {
+    className?: string;
+    href: undefined;
+    right?: ReactNode;
+    loading?: boolean;
+    disabled?: boolean;
+  };
 
-export type AnchorProps = JSX.IntrinsicElements['a'] & {
-  className?: string;
-  right?: ReactNode;
-  loading?: boolean;
-  disabled?: boolean;
-};
+export type AnchorProps = JSX.IntrinsicElements['a'] &
+  PropsWithChildren & {
+    className?: string;
+    right?: ReactNode;
+    loading?: boolean;
+    disabled?: boolean;
+  };
 
-export type LinkProps = NextLinkProps & {
-  className?: string;
-  right?: ReactNode;
-  loading?: boolean;
-  disabled?: boolean;
-};
+export type LinkProps = NextLinkProps &
+  PropsWithChildren & {
+    className?: string;
+    right?: ReactNode;
+    loading?: boolean;
+    disabled?: boolean;
+  };
 
 export type ButtonAnchorLinkProps = ButtonProps | AnchorProps | LinkProps;
 

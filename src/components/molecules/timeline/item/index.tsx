@@ -5,19 +5,19 @@ import { Modal } from '@/components/molecules/modal';
 
 export type TimelineItemColor = 'blue' | 'yellow' | 'pink';
 
-export type TimelineItem = {
+export interface TimelineItem {
   id: string;
   date: string | Date;
   title: string;
   subtitle: string;
   content: ReactNode;
-};
+}
 
-export type TimelineItemProps = TimelineItem & {
+export interface TimelineItemProps extends TimelineItem {
   className?: string;
   right?: boolean;
   color: TimelineItemColor;
-};
+}
 
 const timelineItemColors = {
   blue: {

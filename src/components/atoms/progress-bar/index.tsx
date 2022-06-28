@@ -2,13 +2,13 @@ import { FC } from 'react';
 import classNames from 'classnames';
 import Slide from 'react-reveal/Slide';
 
-export type ProgressBarProps = {
+export interface ProgressBarProps {
   id: string;
   className?: string;
   label?: string;
   value: number;
   colorClassName?: string;
-};
+}
 
 export const ProgressBar: FC<ProgressBarProps> = ({ id, className, label, value, colorClassName }) => {
   const normalizedProgress = Math.round(Math.max(Math.min(value, 100), 0));

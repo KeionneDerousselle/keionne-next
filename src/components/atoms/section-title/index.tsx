@@ -2,10 +2,10 @@ import { FC } from 'react';
 import classNames from 'classnames';
 import Fade from 'react-reveal/Fade';
 
-export type SectionTitleProps = {
+export interface SectionTitleProps {
   title: string;
   className?: string;
-};
+}
 
 export const SectionTitle: FC<SectionTitleProps> = ({ title, className }) => (
   <Fade bottom>

@@ -1,12 +1,12 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import classNames from 'classnames';
 import { TimelineItem, TimelineItemColor } from './item';
 
-export type TimelineProps = {
+export interface TimelineProps extends PropsWithChildren {
   id: string;
   className?: string;
   items?: TimelineItem[];
-};
+}
 
 const timelineBgColors: Record<number, TimelineItemColor> = {
   0: 'blue',

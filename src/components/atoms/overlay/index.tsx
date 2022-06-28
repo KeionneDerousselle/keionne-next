@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-export type OverlayProps = {
+export interface OverlayProps {
   id?: string;
   show: boolean;
-};
+}
 
 export const Overlay: FC<OverlayProps> = ({ id, show }) => (
   <CSSTransition

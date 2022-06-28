@@ -11,11 +11,11 @@ export type AboutMeContent = Omit<AboutMeProps, 'id' | 'className'>;
 export type SkillsContent = Omit<SkillsProps, 'id' | 'className'>;
 export type ExperienceContent = Omit<ExperienceProps, 'id' | 'className'>;
 
-export type HomePageProps = {
+export interface HomePageProps {
   aboutMe: AboutMeContent;
   skills: SkillsContent;
   experience: ExperienceContent;
-};
+}
 
 export default function Home({ aboutMe, skills, experience }: HomePageProps): ReactElement {
   return (

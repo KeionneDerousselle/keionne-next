@@ -1,17 +1,17 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, PropsWithChildren, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import classNames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 import { useOnEscape } from '@/hooks/useOnEscape';
 import { Overlay } from '@/components/atoms/overlay';
 
-export type ModalProps = {
+export interface ModalProps extends PropsWithChildren {
   id: string;
   ariaLabel?: string;
   className?: string;
   show: boolean;
   onClose: () => void;
-};
+}
 
 export const Modal: FC<ModalProps> = ({ id, show, ariaLabel, className, onClose, children }) => {
   const [mounted, setMounted] = useState(false);

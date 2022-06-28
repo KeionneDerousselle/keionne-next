@@ -4,10 +4,10 @@ import { Parallax } from './parallax';
 import { AnimatedScrollIndicator } from './animated-scroll-indicator';
 import TextLoop from 'react-text-loop';
 
-export type IntroProps = {
+export interface IntroProps {
   id: string;
   className?: string;
-};
+}
 
 export const Intro: FC<IntroProps> = ({ id, className }) => (
   <section

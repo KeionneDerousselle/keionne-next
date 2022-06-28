@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { Header } from '../header';
 import { Footer } from '@/components/molecules/footer';
 
-export interface LayoutProps {
+export interface LayoutProps extends PropsWithChildren {
   className?: string;
 }
 

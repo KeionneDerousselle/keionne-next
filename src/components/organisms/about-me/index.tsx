@@ -1,17 +1,17 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { Section } from '@/components/molecules/section';
 import { ButtonLink } from '@/components/atoms/button-link';
 
-export type AboutMeProps = {
+export interface AboutMeProps extends PropsWithChildren {
   id: string;
   className?: string;
   title: string;
   blurbTitle: string;
   blurbDescription: string;
   ctaLabel: string;
-};
+}
 
-const AvatarContainer: FC = ({ children }) => (
+const AvatarContainer: FC<PropsWithChildren> = ({ children }) => (
   <div className="relative flex justify-center w-full px-4 mb-8 about__avatar md:mb-0 md:justify-start md:w-1/4 md:flex-[0_0_25%] md:max-w-[25%]">
     <div>{children}</div>
   </div>

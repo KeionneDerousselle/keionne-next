@@ -8,10 +8,10 @@ import { LogoLink } from '@/components/atoms/logo-link';
 import { NavToggleButton } from '@/components/atoms/nav-toggle';
 import tailwindConfig from '../../../../tailwind.config.js';
 
-export type HeaderProps = {
+export interface HeaderProps {
   id?: string;
   className?: string;
-};
+}
 
 export const Header: FC<HeaderProps> = ({ id, className }) => {
   const [isNavOpen, setNavOpen] = useState(false);

@@ -2,21 +2,21 @@ import { FC } from 'react';
 import { Section } from '@/components/molecules/section';
 import { Timeline } from '@/components/molecules/timeline';
 
-export type Job = {
+export interface Job {
   companyName: string;
   positionTitle: string;
   startDate: string;
   endDate: string;
   summary: string;
   content: string;
-};
+}
 
-export type ExperienceProps = {
+export interface ExperienceProps {
   id: string;
   className?: string;
   title: string;
   jobs: Job[];
-};
+}
 
 export const Experience: FC<ExperienceProps> = ({ id, className, title, jobs }) => {
   const timelineItems = jobs
