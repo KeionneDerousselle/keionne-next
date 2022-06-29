@@ -3,10 +3,11 @@ import classNames from 'classnames';
 import TextLoop from 'react-text-loop';
 import { faLinkedinIn, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { IconLinkBarItemProps } from '@/components/atoms/icon-link-bar-item';
+import { ButtonLink } from '@/components/atoms/button-link';
+import { IconLinkBar } from '@/components/molecules/icon-link-bar';
 import { Parallax } from './parallax';
 import { AnimatedScrollIndicator } from './animated-scroll-indicator';
-import { IconLinkBar } from '@/components/molecules/icon-link-bar';
-import { IconLinkBarItemProps } from '@/components/atoms/icon-link-bar-item';
 
 export interface IntroProps {
   id: string;
@@ -44,7 +45,7 @@ export const Intro: FC<IntroProps> = ({ id, className }) => (
     className={classNames('relative flex items-center h-[100vh] min-h-[100vh] bg-purple-700', className)}
   >
     <div className="k-container">
-      <div className="relative z-20 max-w-xl m-auto text-center">
+      <div className="relative z-20 flex flex-col items-center max-w-xl m-auto text-center">
         <h1 className="mb-2 text-3xl font-bold text-white">Keionne Derousselle</h1>
         <h2 className="text-lg font-bold text-white">
           I&apos;m a&nbsp;
@@ -56,7 +57,10 @@ export const Intro: FC<IntroProps> = ({ id, className }) => (
             <span>diligent problem solver</span>
           </TextLoop>
         </h2>
-        <IconLinkBar className="mt-6" iconLinkBarItems={iconLinkBarItems} />
+        <IconLinkBar className="my-6" iconLinkBarItems={iconLinkBarItems} />
+        <ButtonLink href="/#contact" passHref>
+          Hire me!
+        </ButtonLink>
       </div>
       <AnimatedScrollIndicator href="/#about" />
       <Parallax />

@@ -1,31 +1,36 @@
-import React, { forwardRef, ForwardedRef, ReactNode, PropsWithChildren, ForwardRefRenderFunction } from 'react';
+import React, {
+  forwardRef,
+  ForwardedRef,
+  ReactNode,
+  PropsWithChildren,
+  ForwardRefRenderFunction,
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+} from 'react';
 import Link, { LinkProps as NextLinkProps } from 'next/link';
 import classNames from 'classnames';
 
-export type ButtonProps = JSX.IntrinsicElements['button'] &
-  PropsWithChildren & {
-    className?: string;
-    href: undefined;
-    right?: ReactNode;
-    loading?: boolean;
-    disabled?: boolean;
-  };
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, PropsWithChildren {
+  className?: string;
+  href: undefined;
+  right?: ReactNode;
+  loading?: boolean;
+  disabled?: boolean;
+}
 
-export type AnchorProps = JSX.IntrinsicElements['a'] &
-  PropsWithChildren & {
-    className?: string;
-    right?: ReactNode;
-    loading?: boolean;
-    disabled?: boolean;
-  };
+export interface AnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement>, PropsWithChildren {
+  className?: string;
+  right?: ReactNode;
+  loading?: boolean;
+  disabled?: boolean;
+}
 
-export type LinkProps = NextLinkProps &
-  PropsWithChildren & {
-    className?: string;
-    right?: ReactNode;
-    loading?: boolean;
-    disabled?: boolean;
-  };
+export interface LinkProps extends NextLinkProps, PropsWithChildren {
+  className?: string;
+  right?: ReactNode;
+  loading?: boolean;
+  disabled?: boolean;
+}
 
 export type ButtonAnchorLinkProps = ButtonProps | AnchorProps | LinkProps;
 
@@ -36,7 +41,8 @@ export type PolymorphicButton = {
 };
 
 const isAnchor = (props: ButtonAnchorLinkProps): props is AnchorProps => props.href !== undefined;
-const isNextLink = (props: ButtonAnchorLinkProps): props is LinkProps => props.href !== undefined;
+const isNextLink = (props: ButtonAnchorLinkProps): props is LinkProps =>
+  props.href !== undefined && props.href.toString().startsWith('/');
 
 const BL: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, ButtonAnchorLinkProps> = (props, ref) => {
   const { href, className = '', children, right, loading, disabled, ...other } = props;
@@ -44,7 +50,7 @@ const BL: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, Button
   const isNextLinkLink = isNextLink(props);
 
   const classes = classNames(
-    'appearance-none relative flex items-center justify-center align-middle rounded-full cursor-pointer no-underline select-none py-3 px-8 m-0 font-bold text-center leading-none text-white bg-pink-400 transition-all duration-300 ease-out hover:scale-90 focus:scale-90 ',
+    'appearance-none relative flex items-center justify-center align-middle rounded-full cursor-pointer no-underline select-none py-3 px-8 m-0 font-bold text-center leading-none text-white bg-pink-300 transition-all duration-300 ease-out hover:scale-90 focus:scale-90 focus:outline-none',
     { 'disabled:cursor-not-allowed disabled:bg-slate-600 disabled:transform-none': !isAnchorLink && !isNextLinkLink },
     { 'cursor-not-allowed bg-slate-600': disabled && (isAnchorLink || isNextLinkLink) },
     className
@@ -65,19 +71,19 @@ const BL: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, Button
     </div>
   );
 
-  if (isAnchorLink) {
-    return (
-      <a ref={ref as ForwardedRef<HTMLAnchorElement>} className={classes} {...(other as AnchorProps)}>
-        {content}
-      </a>
-    );
-  } else if (isNextLinkLink) {
+  if (isNextLinkLink) {
     return (
       <Link href={href} {...(other as NextLinkProps)}>
         <a ref={ref as ForwardedRef<HTMLAnchorElement>} className={classes}>
           {content}
         </a>
       </Link>
+    );
+  } else if (isAnchorLink) {
+    return (
+      <a ref={ref as ForwardedRef<HTMLAnchorElement>} className={classes} {...(other as AnchorProps)}>
+        {content}
+      </a>
     );
   } else {
     return (
