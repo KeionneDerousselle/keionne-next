@@ -1,13 +1,42 @@
 import { FC } from 'react';
 import classNames from 'classnames';
+import TextLoop from 'react-text-loop';
+import { faLinkedinIn, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { Parallax } from './parallax';
 import { AnimatedScrollIndicator } from './animated-scroll-indicator';
-import TextLoop from 'react-text-loop';
+import { IconLinkBar } from '@/components/molecules/icon-link-bar';
+import { IconLinkBarItemProps } from '@/components/atoms/icon-link-bar-item';
 
 export interface IntroProps {
   id: string;
   className?: string;
 }
+
+const iconLinkBarItems: IconLinkBarItemProps[] = [
+  {
+    href: 'https://www.linkedin.com/in/keionnederousselle/',
+    icon: faLinkedinIn,
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+  {
+    href: 'https://twitter.com/KeionneD',
+    icon: faTwitter,
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+  {
+    href: 'https://github.com/KeionneDerousselle',
+    icon: faGithub,
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+  {
+    href: 'mailto:knnderousselle@gmail.com',
+    icon: faEnvelope,
+  },
+];
 
 export const Intro: FC<IntroProps> = ({ id, className }) => (
   <section
@@ -27,6 +56,7 @@ export const Intro: FC<IntroProps> = ({ id, className }) => (
             <span>diligent problem solver</span>
           </TextLoop>
         </h2>
+        <IconLinkBar className="mt-6" iconLinkBarItems={iconLinkBarItems} />
       </div>
       <AnimatedScrollIndicator href="/#about" />
       <Parallax />
