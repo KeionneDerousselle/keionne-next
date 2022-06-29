@@ -14,10 +14,8 @@ export const IconLinkBar: FC<IconLinkBarProps> = ({ iconLinkBarItems, className 
         <IconLinkBarItem
           key={href}
           listItemClassName={classNames('px-5', listItemClassName)}
-          iconClassName={classNames(
-            'text-white transition-colors duration-150 ease-in-out hover:text-[#FFD15C]',
-            iconClassName
-          )}
+          anchorClassName="text-white hover:text-[#FFD15C] focus-within:text-[#FFD15C] focus:outline-none"
+          iconClassName={classNames('transition-colors duration-150 ease-in-out fill-current', iconClassName)}
           href={href}
           icon={icon}
           size={size || 'lg'}

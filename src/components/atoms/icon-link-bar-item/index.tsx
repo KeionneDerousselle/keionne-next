@@ -3,6 +3,7 @@ import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontaw
 
 export interface IconLinkBarItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   listItemClassName?: string;
+  anchorClassName?: string;
   iconClassName?: string;
   icon: FontAwesomeIconProps['icon'];
   size?: FontAwesomeIconProps['size'];
@@ -10,14 +11,15 @@ export interface IconLinkBarItemProps extends AnchorHTMLAttributes<HTMLAnchorEle
 
 export const IconLinkBarItem: FC<IconLinkBarItemProps> = ({
   listItemClassName,
+  anchorClassName,
+  iconClassName,
   icon,
   size,
-  iconClassName,
   ...props
 }) => {
   return (
     <li className={listItemClassName}>
-      <a {...props}>
+      <a className={anchorClassName} {...props}>
         <FontAwesomeIcon icon={icon} size={size} className={iconClassName} />
       </a>
     </li>
